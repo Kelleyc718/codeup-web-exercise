@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+html,body {
+    background-color: #242424; color: #F4F4F4;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+html {
+    text-align: center;
+}
+
+body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+a,hr {
+    color: #2196F3;
+}
+
+fieldset {
+    width: 400px;
+    margin: auto;
+    color: #ffa500;
+    border-color: #ffa500;
+}
+
+input[type="text"], input[type="password"], input[type="checkbox"], textarea, button {
+    background-color: #ffa500;
+}
+
+.input_fields {
+    margin: auto;
+    display: block;
+}

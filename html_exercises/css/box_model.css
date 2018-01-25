@@ -1,0 +1,51 @@
+h1 {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+div {
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-top: 0;
+  padding: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.box_format {
+  width: 172px;
+  height: 72px;
+}
+
+.red_box {
+  background: red;
+}
+
+.orange_box {
+  background: orange;
+  margin-left: 30px
+}
+
+.yellow_box {
+  background: yellow;
+  margin-left: 60px
+}
+
+.green_box {
+  background: green;
+  margin-left: 90px
+}
+
+.blue_box {
+  background: blue;
+  margin-left: 120px
+}
+.purple_box {
+  background: violet;
+  margin-left: 150px
+}

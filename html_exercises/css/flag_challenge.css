@@ -1,0 +1,42 @@
+.wrapper    {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 3fr;
+}
+
+#rectangle {
+    min-height: 100vh;
+    min-width: 33vw;
+    max-width: 33vw;
+    grid-column: 1/2;
+    grid-row: 1/5;
+    background: #002868;
+}
+
+#rectangle img {
+    width: 50%;
+    height: auto;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#white_rectangle {
+    grid-column: 2/4;
+    grid-row: 1;
+    min-width: 66vw;
+    max-width: 66vw;
+    min-height: 50vh;
+    background: white;
+}
+
+#red_rectangle {
+    grid-column: 2/4;
+    grid-row: 2;
+    min-width: 66vw;
+    max-width: 66vw;
+    min-height: 50vh;
+    background: #BF0A30;
+}

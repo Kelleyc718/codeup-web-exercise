@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body, ul {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 1600px;
+}
+
+/* Grid Definitions */
+.col {
+    float: left;
+    padding: 0.6em;
+}
+
+.xl {
+    width: 66%;
+}
+
+.lrg {
+    width: 50%;
+
+}
+
+.med {
+    width: 33%;
+}
+
+.sm {
+    width: 25%;
+}
+
+.xs {
+    width: 12.5%;
+}
+
+.row {
+    width: 100%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* CSS Grid Definitions Complete */
+
+.alert-info {
+    padding: 0.6em;
+    background-color: #ccfffd;
+    border: 2px solid #dddddd;
+}
+
+.alert-info a {
+    text-decoration: none;
+    color: #000;
+}
+
+nav  {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+nav li {
+    background-color: #dddddd;
+    list-style: none;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 0.6em;
+}
+
+nav li:last-child {
+    margin-bottom: 1em;
+}
+.header-img>img {
+    width: 75vw;
+    height: auto;
+}
+
+section {
+    text-align: left;
+}
+
+.sub-section {
+    font-style: italic;
+}
+
+footer  {
+    font-size: 0.6em;
+    float: left;
+    margin-left: 1em;
+    position: relative;
+
+}
+
+/* Responsive Media Queries */
+
+@media screen and (max-width: 500px) {
+    .col {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .hidden-on-desktop {
+        display: none;
+    }
+    
+    h1.xs {
+        width: 100%;
+    }
+    
+    .nav-links.xl {
+        width: 100%;
+    }
+
+    .nav-links>li {
+        padding-left: 0.6rem;
+        display: inline-block;
+        background-color: unset;
+    }
+}
+
+@media screen and (min-width: 760px){
+
+    h1 {
+        text-align: left;
+    }
+
+    .nav-links {
+        float: right;
+    }
+
+    .sub-section {
+        float: right;
+    }
+}
+
+
