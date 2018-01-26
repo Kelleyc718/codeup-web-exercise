@@ -1,4 +1,5 @@
 var s = 'ttfftff';
+var ops = '|&^&&';
 
 function splitter (str) {
   var booArr = str.split('');
@@ -20,8 +21,6 @@ var booVals = booAssign(myArr);
 
 console.log(booVals);
 
-var ops = '|&^&&';
-
 function opSplitter (ops) {
   var opsArr = ops.split('');
   return opsArr;
@@ -30,3 +29,11 @@ function opSplitter (ops) {
 var opsArr = opSplitter(ops);
 
 console.log(opsArr);
+
+function opConversion (opsArr) {
+  for (var i = 0; i < opsArr.length; i++) {
+    if (opsArr[i] === '|') {
+
+    }
+  }
+}

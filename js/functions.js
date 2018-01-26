@@ -1,5 +1,4 @@
-"use strict";
-
+'use strict';
 /**
  * TODO:
  * Create a function called 'sayHello' that takes a parameter 'name'.
@@ -80,7 +79,7 @@ function calculateTip (tipPercent, totalBill) {
  */
 var billPrompt = prompt('Whats the total bill?');
 var tipPrompt = prompt('How much would you like to tip?');
-alert('$' + calculateTip(tipPrompt, billPrompt));
+alert('Your tip amount is: $' + calculateTip(tipPrompt, billPrompt));
 
 /**
  * TODO:
