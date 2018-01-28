@@ -12,21 +12,22 @@
 
 	<form action="https://hookb.in/Kb8B50kG" method="POST">
 		<fieldset>
-			<label for="usr_name" class="input_fields">
-				Username: <input type="text" name="usr_name" id="usr_name" placeholder="username" required>
+			<label for="username" class="input_fields">
+				Username: <input type="text" name="username" id="username" placeholder="username" required>
 			</label>
-			
+
 			<label for="password" class="input_fields">
 				Password: <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 				                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more" placeholder="password">
 			</label>
-			
+
 			<label for="keep_logged" class="input_fields">
 				Keep Me Logged In: <input type="checkbox" name="keep_logged" id="keep_logged" checked>
 			</label>
-			
+
 			<button class="input_fields">Submit</button>
 		</fieldset>
 	</form>
+	<script src="js_exercises/validation.js" charset="utf-8"></script>
 </body>
 </html>
