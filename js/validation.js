@@ -1,5 +1,5 @@
-var username = document.getElementById(username);
-var password = document.getElementById(password);
+var username = document.forms.login.username;
+var password = document.forms.login.password;
 // Username and Password Length Validation
 var passLen = password.length >= 5;
 var nameLen = username.length < 20;
