@@ -1,0 +1,67 @@
+html, body, div, a, p, h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows:  20vh [startbuffer] 5vh [title] 5vh [screen] 10vh [buttonrow1] 10vh [buttonrow2] 10vh [buttonrow3] 10vh [buttonrow4] 10vh [endbuffer] 20vh;
+}
+
+.calc-body {
+  display: subgrid;
+  grid-column: 4 / 10;
+  grid-row: 2 / 9;
+  background-color: grey;
+}
+
+.title {
+  justify-content: center;
+  grid-row: 2;
+  grid-column: 4 / 10;
+}
+
+.title h1 {
+  text-align: center;
+}
+
+.screen {
+  padding: 10px;
+  text-align: right;
+  grid-row: 3;
+  grid-column: 5 / 9;
+  border: 1px solid black;
+}
+
+.button-leftParen {
+  grid-row: 4;
+  grid-column: 5 / 6;
+  display:inline-block;
+  position: relative;
+  top: 10px;
+  left: 8px;
+  background-color: lightblue;
+  width:75%;
+  height:75%;
+  border-radius: 10
+}
+
+.buttonrow2 {
+  justify-content: space-evenly;
+  grid-row: 5;
+  grid-column: 5 / 9;
+}
+
+.buttonrow3 {
+  display: inline-grid;
+  justify-content: space-evenly;
+  grid-row: 6;
+  grid-column: 5 / 9;
+}
+
+.buttonrow4 {
+  justify-content: space-evenly;
+  grid-row: 7;
+  grid-column: 5 / 9;
+}
