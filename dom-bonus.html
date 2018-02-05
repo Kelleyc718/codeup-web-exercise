@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script charset="utf-8">
+  (function () {
+    "use strict";
+    let userInput = confirm("Would you like to make an entry?");
+    if (userInput) {
+      addEntry(userInput);
+    } else {
+      alert("Move along!");
+    }
+
+    function addEntry (input) {
+      input = prompt("Please add your entry.");
+      let newDiv = document.createElement("ul");
+      let newList = document.createElement("li");
+      newDiv.appendChild(newList);
+      newList.innerHTML = input.toString();
+      let currentListItem = document.getElementById("li");
+      document.body.insertBefore(newList, currentListItem);
+    }
+
+    let anotherEntry = confirm("Do you want to add an entry?");
+    while (anotherEntry) {
+      addEntry();
+      anotherEntry = confirm("Do you want to add an entry?");
+    }
+    alert("Thanks for participating.");
+  })();
+</script>
+</body>
+</html>
