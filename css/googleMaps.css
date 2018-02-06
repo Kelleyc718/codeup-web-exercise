@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 300px 300px auto;
+  grid-template-rows: 20vh 45px 400px 20vh;
+  background-color: #819ca9;
+}
+
+#map {
+  grid-row: 3/4;
+  grid-column: 2/4;
+  border: 5px solid #546e7a;
+}
+
+#floating-panel {
+  grid-row: 2;
+  grid-column: 2/4;
+  z-index: 5;
+  background-color: #29434e;
+  padding: 5px;
+  border-top: 5px solid #546e7a;
+  border-left: 5px solid #546e7a;
+  border-right: 5px solid #546e7a;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 1.6em;
+}
+
+#address {
+  width: 75%;
+  float: left;
+  margin-top: 5px;
+  margin-left:10px;
+}

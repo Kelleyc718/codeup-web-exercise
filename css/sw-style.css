@@ -1,6 +1,6 @@
 section {
   display: grid;
-  grid-template-rows: 10vh 40vh 40vh 10vh;
+  grid-template-rows: 10vh 40vh 40vhs 10vh;
   grid-template-columns: 10vw 40vw 40vw 10vw;
 }
 

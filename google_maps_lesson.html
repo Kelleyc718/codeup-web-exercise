@@ -9,7 +9,8 @@
   <title>Google Maps Exercise</title>
   <style>
     #map {
-      height: 100%;
+      height: 500px;
+      width: 500px;
     }
       /* Optional: Makes the sample page fill the window. */
     html, body {
@@ -17,21 +18,68 @@
       margin: 0;
       padding: 0;
     }
+
+    #address {
+      width: 400px;
+      height: 2em;
+    }
   </style>
 </head>
 <body>
   <div id="map">
   </div>
+  <input type="text" id="address" placeholder="Please enter your address here.">
+  <button id="find">Find Me!</button>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC7V8MzJ0RTYA8ZcR90gfjw2zP5kbH6uA"></script>
 <script charset="utf-8">
-  var map;
-  function initMap () {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 29.4259671, lng: -98.4861419},
-      zoom: 21
+// Default map location
+(function () {
+  let map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 29.4259671, lng: -98.4861419},
+    zoom: 18
+  });
+
+  const theAlamo = {
+    lat: 29.4259671,
+    lng: -98.4861419
+  };
+
+  const mapMarker = new google.maps.Marker({
+    position: theAlamo,
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    title: 'Remember the Alamo'
+  });
+// Find Me Search Bar
+  const findMe = function () {
+    var address = document.getElementById('address').value;
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ "address": address }, function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+      } else {
+        alert("Geocoding was not successful - STATUS: " + status);
+      }
+    });
+  };
+
+  const findMeBtn = document.getElementById('find').addEventListener('click', findMe, false);
+  // Double click to place marker
+  const labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let labelIndex = 0;
+
+  function addMarker (location, map) {
+    var marker = new google.maps.Marker({
+      position: location,
+      label: labels[labelIndex++ % labels.length],
+      map: map
     });
   }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC7V8MzJ0RTYA8ZcR90gfjw2zP5kbH6uA&callback=initMap" charset="utf-8">
+  google.maps.event.addListener(map, 'dblclick', function (event) {
+    addMarker(event.latLng, map);
+  });
+})();
 </script>
 </body>
 </html>
