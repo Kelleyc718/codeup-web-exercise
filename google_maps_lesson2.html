@@ -41,16 +41,16 @@
   const findMe = function () {
     var address = document.getElementById('address').value;
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ "address": address }, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-    } else {
-      alert("Geocoding was not successful - STATUS: " + status);
-    }
+    geocoder.geocode({ "address": address }, function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+      } else {
+        alert("Geocoding was not successful - STATUS: " + status);
+      }
     });
   };
 
-  var findMeBtn = document.getElementById('find').addEventListener('click', findMe, false);
+  let findMeBtn = document.getElementById('find').addEventListener('click', findMe, false);
 </script>
 </body>
 </html>
