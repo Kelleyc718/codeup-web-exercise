@@ -4,23 +4,51 @@ html, body {
   padding: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+html {
+  background: url('../img/french.jpg');
+  height: 100%;
+  position: relative;
+  background-size: cover;
+}
+
 .container {
   height: 100%;
-  width: 100%;
+  min-width: 100%;
   display: grid;
-  grid-template-columns: auto 300px 300px auto;
-  grid-template-rows: 20vh 45px 400px 20vh;
-  background-color: #819ca9;
+  grid-template-columns: 20vw 30vw 30vw 20vw;
+  grid-template-rows: 20vh 10vh 5vh 400px 20vh;
+  background: rgba(255,255,255,.5);
+}
+
+.title {
+  justify-content: center;
+  text-align: center;
+  grid-row: 1;
+  grid-column: 2/4;
+  color: #29434e;
+  font-size: 2em;
+  z-index: 2;
+}
+
+.title img {
+  margin: 1em;
+  padding-bottom: 2em;
 }
 
 #map {
-  grid-row: 3/4;
+  grid-row: 4/5;
   grid-column: 2/4;
   border: 5px solid #546e7a;
 }
 
 #floating-panel {
-  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: 30px 30px;
+  grid-row: 2/4;
   grid-column: 2/4;
   z-index: 5;
   background-color: #29434e;
@@ -31,11 +59,28 @@ html, body {
   text-align: center;
   font-family: 'Roboto','sans-serif';
   line-height: 1.6em;
+  margin-top: 2em;
+}
+
+#floating-panel button {
+  margin: 5px;
+  justify-self: center;
+  grid-row: 1;
 }
 
 #address {
-  width: 75%;
+  grid-row: 2;
+  grid-column: 1/4;
+  width: 98%;
   float: left;
-  margin-top: 5px;
-  margin-left:10px;
+  margin: 5px;
+}
+
+input#submit {
+  grid-column: 4/5;
+  margin: 5px;
+  width: 65%;
+  justify-self: center;
+  justify-content: center;
+  align-content: center;
 }
