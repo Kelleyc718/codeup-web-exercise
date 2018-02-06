@@ -1,7 +1,7 @@
 section {
   display: grid;
   grid-template-rows: 10vh auto auto 10vh;
-  grid-template-columns: 10vw auto auto 10vw;
+  grid-template-columns: 10vw 40vw 40vw 10vw;
 }
 
 * {
@@ -31,7 +31,7 @@ section {
   height: 100%;
   width: 100%;
   grid-row: 1;
-  grid-column: 2 / 3;
+  grid-column: 1 / 4;
 }
 
 .ten-hours {
@@ -92,7 +92,7 @@ section {
   grid-column: 12;
 }
 
-#start-lap {
+#start {
   grid-column: 1 / 4;
   grid-row: 3;
   border: 2px solid black;
@@ -114,8 +114,26 @@ section {
   background-color: grey;
 }
 
-table {
-  color: black;
+/*.laps {
+  text-align: center;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-row: 4;
   grid-column: 2 / 4;
-  grid-row: 3;
 }
+
+#lap-num {
+  border: 1px solid green;
+}
+
+#time {
+  border: 1px solid green;
+}
+
+#split {
+  border: 1px solid green;
+}
+*/
