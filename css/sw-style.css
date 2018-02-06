@@ -1,6 +1,6 @@
 section {
   display: grid;
-  grid-template-rows: 10vh auto auto 10vh;
+  grid-template-rows: 10vh 40vh 40vh 10vh;
   grid-template-columns: 10vw 40vw 40vw 10vw;
 }
 
@@ -97,7 +97,6 @@ section {
   grid-row: 3;
   border: 2px solid black;
   background-color: lightgreen;
-
 }
 
 #stop {
