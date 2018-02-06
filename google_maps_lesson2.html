@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/style.css">
+  <title>Google Maps Exercise</title>
+  <style>
+    #map {
+      height: 500px;
+      width: 500px;
+    }
+      /* Optional: Makes the sample page fill the window. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #address {
+      width: 400px;
+      height: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div id="map">
+  </div>
+  <input type="text" id="address" placeholder="Please enter your address here.">
+  <button id="find">Find Me!</button>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC7V8MzJ0RTYA8ZcR90gfjw2zP5kbH6uA"></script>
+<script charset="utf-8">
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 29.4259671, lng: -98.4861419},
+    zoom: 21
+  });
+
+// Address geolocator
+  const findMe = function () {
+    var address = document.getElementById('address').value;
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ "address": address }, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+    } else {
+      alert("Geocoding was not successful - STATUS: " + status);
+    }
+    });
+  };
+
+  var findMeBtn = document.getElementById('find').addEventListener('click', findMe, false);
+</script>
+</body>
+</html>
