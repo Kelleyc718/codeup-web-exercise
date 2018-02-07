@@ -11,14 +11,14 @@ html {
   background: url('../img/french.jpg');
   height: 100%;
   position: relative;
-  background-size: cover;
+  background-size: 100% center no-repeat;
 }
 
 .container {
   height: 100%;
   min-width: 100%;
   display: grid;
-  grid-template-columns: 20vw 30vw 30vw 20vw;
+  grid-template-columns: 20vw auto auto 20vw;
   grid-template-rows: 20vh 10vh 5vh 400px 20vh;
   background: rgba(255,255,255,.5);
 }
@@ -34,21 +34,20 @@ html {
 }
 
 .title img {
-  margin: 1em;
-  padding-bottom: 2em;
+  margin-top: 1em;
 }
 
 #map {
-  grid-row: 4/5;
+  grid-row: 3/5;
   grid-column: 2/4;
   border: 5px solid #546e7a;
 }
 
 #floating-panel {
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-template-rows: 30px 30px;
-  grid-row: 2/4;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 30px;
+  grid-row: 2;
   grid-column: 2/4;
   z-index: 5;
   background-color: #29434e;
@@ -62,24 +61,18 @@ html {
   margin-top: 2em;
 }
 
-#floating-panel button {
-  margin: 5px;
-  justify-self: center;
-  grid-row: 1;
-}
-
 #address {
-  grid-row: 2;
-  grid-column: 1/4;
+  grid-row: 1;
+  grid-column: 1;
   width: 98%;
   float: left;
   margin: 5px;
 }
 
 input#submit {
-  grid-column: 4/5;
+  grid-row: 1;
+  grid-column: 2;
   margin: 5px;
-  width: 65%;
   justify-self: center;
   justify-content: center;
   align-content: center;
