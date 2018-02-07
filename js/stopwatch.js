@@ -82,7 +82,7 @@
       hour = 0;
       tensHour.innerHTML = ++tenHour;
     }
-    if (tenHour > 2 && hour > 3) {
+    if (tenHour > 2) {
       alert("You've exceeded the limitations of this stopwatch");
     }
   }
