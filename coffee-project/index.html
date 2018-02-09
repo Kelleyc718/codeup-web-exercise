@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>The Last Grind</title>
-    <style> @import   url('https://fonts.googleapis.com/css?family=Asap|Quattrocento');
-    </style>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Last Grind</title>
+  <style> @import   url('https://fonts.googleapis.com/css?family=Asap|Quattrocento');
+  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="container">
@@ -15,22 +18,35 @@
     </div>
     <div class="main-body">
       <div class="search-results">
-        <div class="coffee-col-1">
-          filler
-        </div>
-        <div class="coffee-col-2">
-          filler
+        <div id="coffees">
         </div>
       </div>
       <div class="coffee-search">
-        filler
-      </div>
-      <div class="add-coffee">
-        filler
+				<div class="searchBar">
+          <input type="text" id="coffeeSearch" oninput="updateCoffees()" name="search">
+        </div>
+        <div id="roast">
+          <select id="roastSelection" onchange="updateCoffees(this.options[this.selectedIndex].value)">
+            <option value="" selected disabled>Choose here</option>
+            <option class='selection' value="light">Light</option>
+            <option class='selection' value="medium">Medium</option>
+            <option class='selection' value="dark">Dark</option>
+            <option class='selection' value="all">All Roasts</option>
+          </select>
+        </div>
+				<div class="add-coffee">
+					<input type="text" id="addBean">
+					<select name="roastChooser" id="roastStrength">
+						<option value="" selected disabled>Choose Strength</option>
+						<option value="light" class="roastType">light</option>
+						<option value="medium" class="roastType">medium</option>
+						<option value="dark" class="roastType">dark</option>
+					</select>
+					<button type="submit" id="addNewBean" onclick="console.log(addBean())">Add New Bean</button>
+	      </div>
       </div>
     </div>
   </div>
-
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
