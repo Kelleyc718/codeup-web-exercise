@@ -1,8 +1,25 @@
 'use strict';
 
-$(document).ready(function () {
-  $('li').css('font-size', '20px');
-  $('h1 , p, li').css('background', 'yellow');
-  let content = $('h1').html();
-  alert(content);
-});
+
+// $('h1').click(
+  // function (e) {
+    // $(event.target).toggleClass('higlight');
+  // }
+// );
+
+$('p').dblclick(
+  function (e) {
+    if ($(this).css('fontSize') == '16px') {
+      $(this).css('font-size', '24px');
+    } else {
+    $(this).css('fontSize', '16px');
+    }
+  }
+);
+
+// $('li').hover(function (e) {
+  // $(this).css('color', 'red');
+// }, function () {
+  // $(this).css('color', 'black');
+// }
+// );
