@@ -6,18 +6,23 @@
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>The Last Grind</title>
-  <style> @import   url('https://fonts.googleapis.com/css?family=Asap|Quattrocento');
+  <style> @import   url('https://fonts.googleapis.com/css?family=Quattrocento');
   </style>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="wrapper">
     <div class="header">
-      <p class="brand">The Last Grind</p>
-      <p class="tagline">"Keep grindin" est.2018</p>
+      <p class="brand">The Last Grind
+			<p class="tagline">"Keep grindin"</p></p>
     </div>
     <div class="main-body">
       <div class="search-results">
+				<div id="welcome-text">
+					<p #head-intro>"Welcome to The Last Grind! We specialize in sourcing our beans from the best available sources, that are guaranteed organic and Fair-Trade Certified."
+						<hr>
+					To get started, choose from your desired roast level. If you're looking for a particular item, enter it into the search bar.</p>
+				</div>
         <div id="coffees">
         </div>
       </div>
@@ -42,10 +47,13 @@
 						<option value="medium" class="roastType">medium</option>
 						<option value="dark" class="roastType">dark</option>
 					</select>
-					<button type="submit" id="addNewBean" onclick="console.log(addBean())">Add New Bean</button>
+					<button type="submit" id="addNewBean" onclick="addBean()">Add New Bean</button>
 	      </div>
       </div>
     </div>
+		<footer>
+			<p>&copy;2018 TIP&trade;</p>
+		</footer>
   </div>
     <script src="js/main.js"></script>
 </body>
