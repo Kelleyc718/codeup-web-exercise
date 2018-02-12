@@ -1,5 +1,8 @@
 'use strict';
 
 $(document).ready(function () {
-  alert('The DOM has finished loading!');
+  $('li').css('font-size', '20px');
+  $('h1 , p, li').css('background', 'yellow');
+  let content = $('h1').html();
+  alert(content);
 });

@@ -1,15 +1,19 @@
 html, body, p {
+  height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 html {
-  height: 100%;
   color: #d2cbc2;
   font-family: "Quattrocento, sans-serif";
   font-size: 16px;
   line-height: 1.6;
+}
+
+body {
+  overflow: hidden;
 }
 
 *:before, *:after {
@@ -29,20 +33,36 @@ html {
 
   /* header elements */
   .header {
+    height: 100%;
     align-self: center;
     text-align: center;
     grid-row: 1;
     grid-column: 1/4;
   }
 
+  .header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  div.header img {
+    grid-row: 1;
+    float: left;
+    width: auto;
+    height: 100%;
+  }
+
   p.brand {
-    font-size: 2rem;
+    text-align: left;
+    padding-top: 0.3rem;
+    font-size: 1rem;
     background-color: #352300e0;
+    padding-left: 3rem;
   }
 
   p.tagline {
     font-size: 1rem;
-    background-color: #352300e0;
   }
 
   /* main body wrapper */
