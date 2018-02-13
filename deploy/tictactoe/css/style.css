@@ -1,0 +1,116 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 20vw 60vw 20vw;
+  grid-template-rows: 20vh 60vh 20vh;
+}
+
+.game-board {
+  display: grid;
+  grid-row: 2;
+  grid-column: 2;
+  grid-template-columns: 1fr 10px 1fr 10px 1fr;
+  grid-template-rows: 1fr 10px 1fr 10px 1fr;
+}
+
+.design-one {
+  grid-row: 1/6;
+  grid-column: 2/3;
+  background-color: black;
+}
+
+.design-two {
+  grid-row: 1/6;
+  grid-column: 4/5;
+  background-color: black;
+}
+
+.design-three {
+  grid-row: 4/5;
+  grid-column: 1/6;
+  background-color: black;
+}
+
+.design-four {
+  grid-row: 2/3;
+  grid-column: 1/6;
+  background-color: black;
+}
+
+.cell {
+  text-align: center;
+  margin: auto;
+}
+
+p {
+  position: relative;
+  bottom: 0;
+  right: 0;
+}
+
+.one {
+  grid-row: 1;
+  grid-column: 1;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.two {
+  grid-row: 1;
+  grid-column: 2;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.three {
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.four {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.five {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.six {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.seven {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.eight {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.nine {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+@media (orientation:landscape) {
+	.game-board {
+    margin: auto;
+	  width: 60vh;
+	  height: 60vh;
+	}
+}
+@media (orientation:portrait) {
+	.game-board {
+    margin: auto;
+	  width: 60vw;
+	  height: 60vw;
+	}
