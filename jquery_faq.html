@@ -12,6 +12,58 @@
   </style>
 </head>
 <body>
+	<div class="newsLetter" style="border: 2px solid black;height: 75px;max-width: 400px;margin: auto;position: relative;display: flex;box-sizing: border-box;">
+		<h1 style="margin: 0; padding: 0; text-align: center;">Would You Like To Sign Up For The Newsletter?</h1>
+		<button style="position: relative;  width: 30px;background-color: black;color: white;float: right;top: 40px;height: 30px;right: auto;">
+			<span>x</span>
+		</button>
+	</div>
+	<div id='show-me' class="form-field hidden">
+		<form id="sign-up" method="POST">
+			<h2>Register Here</h2>
+			<fieldset
+				<label for="username">
+					Username
+					<input type="text"
+						id="username"
+						name="username"
+						style="display: block; margin: auto; margin-bottom: 1rem;"
+						placeholder="Choose a username" required>
+				</label>
+				<label for="email">
+					Email
+					<input type="email"
+						id="email"
+						name="email"
+						style="display: block; margin: auto; margin-bottom: 1rem;"
+						placeholder="Enter a valid email" required>
+				</label>
+				<label for="password">
+					Password
+					<input type="password"
+						id="password"
+						name="password"
+						style="display: block; margin: auto; margin-bottom: 1rem;"
+						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+						title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more"
+						placeholder="Enter your password..." required>
+				</label>
+				<label for="confirm-pass">
+					Confirm Password
+					<input type="password"
+						id="confirm-pass"
+						name="confirm-pass"
+						style="display: block; margin: auto; margin-bottom: 1rem;"
+						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+						title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more"
+						placeholder="Repeat your password" onchange="passMatch()" required>
+				</label>
+				<div id="passmatch"></div>
+				<button type="submit" name="register">Register</button>
+			</fieldset>
+		</form>
+	</div>
+</div>
   <dl class="yosemite">
     Yosemite
     <dd class='hidden'>"Yosemite is cool"</dd>
@@ -25,8 +77,15 @@
         $('.yosemite').children().removeClass('hidden');
       }
     });
-  }
-);
+
+    $('button').click(function () {
+      $(this).parent().hide(1);
+			setInterval(function () {
+				$('#show-me').removeClass('hidden');
+			  $('body>*:not(#show-me)').css("filter","blur(3px)");
+			}, 2000);
+    });
+  });
 </script>
 </body>
 </html>
