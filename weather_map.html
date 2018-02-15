@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrapper" style="display: grid;grid-template-columns: 10vw 80vw 10vw;grid-template-rows: 10vh 40vh 40vh 10vh;">
+    <div id="title" style="grid-column: 2;grid-row: 1;margin: auto;text-align: center;">
+    </div>
+    <div id="main-content" style="grid-row: 2; grid-column: 2; display: grid; grid-template-columns: 20vw 60vw; grid-template-rows: repeat(7, 5vh); grid-auto-flow: column; margin: auto;padding: 0;text-align: center;">
+      <p style="grid-row: 1/2; grid-column: 1/2;">Current</p>
+      <p style="grid-row: 1/2; grid-column: 2/3;">Next-Day</p>
+      <p style="grid-row: 1/2; grid-column: 3/4;">2-Day</p>
+    </div>
+  </div>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC7V8MzJ0RTYA8ZcR90gfjw2zP5kbH6uA&callback=initMap">
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+  var request = $.get("http://api.openweathermap.org/data/2.5/weather", {
+    APPID: "e4e2b715debe76949968bcdb88d1b144",
+    q: "San Francisco",
+    units: "imperial"
+  }).done(function (main) {
+    console.log(main);
+    var weatherData = '';
+    weatherData += `<div class="weather-img"><img src="http://openweathermap.org/img/w/${main.weather[0].icon}.png" alt="Weather Image"/><p style="margin: none; padding: none;"></p></div>`;
+    weatherData += `<div class="temp">Temp: ${main.main.temp}</div>`;
+    weatherData += `<div class="temp-min">Lo: ${main.main.temp_min}</div>`;
+    weatherData += `<div class="temp-max">Hi: ${main.main.temp_max}</div>`;
+    weatherData += `<div class="pressure">BAR: ${main.main.pressure}</div>`;
+    weatherData += `<div class="humidty">Humid: ${main.main.humidity}</div>`;
+    $('#title').html(`<h1>Weather for ${main.name}</h1>`);
+    $("#main-content").append(weatherData);
+  });
+</script>
+</body>
+</html>
