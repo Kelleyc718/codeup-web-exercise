@@ -47,11 +47,11 @@
     var weatherData = '';
     weatherData += `<div class="weather-img"><img style="height: 5vh;
 width: 5vh;" src="http://openweathermap.org/img/w/${main.weather[0].icon}.png" alt="Weather Image"/></div>`;
-    weatherData += `<div class="temp">Temp: ${main.main.temp}</div>`;
-    weatherData += `<div class="temp-min">Lo: ${main.main.temp_min}</div>`;
-    weatherData += `<div class="temp-max">Hi: ${main.main.temp_max}</div>`;
-    weatherData += `<div class="pressure">BAR: ${main.main.pressure}</div>`;
-    weatherData += `<div class="humidty">Humid: ${main.main.humidity}</div>`;
+    weatherData += `<div class="temp">Temp: ${main.main.temp.toFixed(0)}</div>`;
+    weatherData += `<div class="temp-min">Lo: ${main.main.temp_min.toFixed(0)}</div>`;
+    weatherData += `<div class="temp-max">Hi: ${main.main.temp_max.toFixed(0)}</div>`;
+    weatherData += `<div class="wind">Wind: ${main.wind.speed.toFixed(0)}MPH</div>`;
+    weatherData += `<div class="humidty">Humid: ${Math.round(main.main.humidity)}</div>`;
     $('#title').html(`<h1>Weather for ${main.name}</h1>`);
     $("#main-content").append(weatherData);
   });
