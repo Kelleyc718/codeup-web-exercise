@@ -1,3 +1,23 @@
+.--mdc-theme-primary 	{
+  background-color: #78909c;
+  color: #eee;
+}
+
+.--mdc-theme-secondary {
+  background-color: #a7c0cd;
+}
+
+.--mdc-theme-primary-dark {
+  background-color: #4b636e;
+}
+
+.mdc-theme--background {
+  background-color: #263238;
+}
+
+.mdc-button:not(:disabled) {
+  color: #000;
+}
 
 html, body, h1, p {
   margin: 0;
@@ -10,21 +30,37 @@ h1 {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 5vw 30vw 5vw 55vw 5vw;
-  grid-template-rows: 10vh 10vh 35vh 40vh 5vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+#mainContainer {
+  grid-row: 1;
+  grid-column: 1;
+  display: grid;
+  grid-template-rows: 7vh 13vh 70vh 3vh;
+  grid-template-columns: 10px 32vw 64vw 10px;
 }
 
 #title {
-  grid-column: 2/5;
-  grid-row: 1;
-  margin: auto;
-  text-align: center;
+  grid-column: 1/6;
+
+grid-row: 1;
+
+text-align: center;
+}
+
+#title h1 {
+  color: #eee;
+  padding-top: 0.8rem;
 }
 
 #search {
   grid-column: 2/5;
-  grid-row: 2;
-  margin: auto;
+
+grid-row: 2;
+
+margin: auto;
 }
 
 label {
@@ -33,11 +69,16 @@ label {
 
 #main-content {
   display: grid;
-  grid-row: 3/6;
+
   grid-column: 2/3;
-  margin: 5px;
+
+  grid-row: 3;
+
+  padding-bottom: 1rem;
+
+  margin: auto;
+
   text-align: center;
-  grid-template-rows: 25vh 25vh 25vh;
 }
 
 .cards {
@@ -47,60 +88,97 @@ label {
   border: 1px solid black;
   padding: 0.6em;
   margin-bottom: 0.6em;
+  margin: auto;
+}
+
+.current {
+  grid-column: 2;
+}
+
+.next {
+  grid-column: 2;
+}
+
+.twoDay {
+  grid-column: 2;
 }
 
 #map {
-  grid-row: 3/5;
-  grid-column: 4/5;
+  grid-row: 3;
+
+  grid-column: 3/4;
 }
 
+
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  .wrapper {
-    grid-template-columns: 10px repeat(3, 30vw) 10px;
-    grid-template-rows: 10vh 5vh 35vh 45vh;
+
+  #mainContainer {
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 7vh 13vh 30vh 40vh 3vh;
+    grid-template-columns: 10px repeat(3, 32vw) 10px;
   }
 
   #title {
-    grid-column: 2/5;
+    grid-column: 1/6;
     grid-row: 1;
-    margin: auto;
     text-align: center;
   }
 
+  #title h1 {
+    color: #eee;
+    padding-top: 0.8rem;
+  }
+
   #search {
-    grid-row: 2;
     grid-column: 2/5;
-    text-align: left;
+    grid-row: 2;
+    margin: auto;
   }
 
   label {
-    display: inline-block;
     font-size: 2vh;
   }
 
-	#main-content {
+  #main-content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 10px 1fr 10px 1fr 10px 1fr 10px;
     grid-column: 2/5;
     grid-row: 3;
-    margin: auto;
     padding-bottom: 1rem;
-	}
+    margin: 5px;
+    text-align: center;
+    grid-template-rows: 25vh 25vh 25vh;
+  }
+  #main-content {
 
-  .current {
-    grid-column: 1;
   }
 
-  .next {
+  .cards {
+    display: flex;
+    flex-flow: column;
+    font-size: 2vh;
+    border: 1px solid black;
+    padding: 0.6em;
+    margin-bottom: 0.6em;
+    margin: auto;
+  }
+
+  .current {
     grid-column: 2;
   }
 
+  .next {
+    grid-column: 4;
+  }
+
   .twoDay {
-    grid-column: 3;
+    grid-column: 6;
   }
 
   #map {
-    grid-row: 4;
+    grid-row: 4/5;
     grid-column: 2/5;
   }
-}

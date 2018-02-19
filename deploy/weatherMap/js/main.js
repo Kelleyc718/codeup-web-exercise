@@ -17,18 +17,7 @@
         disableDoubleClickZoom: true
       });
 
-      var curLoc = new google.maps.LatLng(myLat, myLng);
-      var service = new google.maps.places.PlacesService(map);
-      service.nearbySearch({
-        location: curLoc,
-        radius: 1500
-      }, callback);
-
-      function callback (results) {
-        console.log(results);
-      }
-
-    // Marker placed at users approximate location
+      // Marker placed at users approximate location
       let marker = new google.maps.Marker({
         position: {lat: myLat, lng: myLng},
         map: map,
@@ -57,7 +46,7 @@
 
       // Function to geolocate based on address
       $('#searchLoc').keypress(function (e) {
-        if (e.key === '13') {
+        if (e.keyCode == '13') {
           var geocoder = new google.maps.Geocoder();
           geo(geocoder, map);
         }
@@ -100,17 +89,16 @@
           cnt: 3,
           units: 'imperial'
         }).done(function (data) {
-          console.log(data);
           var weatherData = '';
           for (var i = 0; i < 3; i++) {
-            var date = new Date().toDateString().slice(0, 3);
+            var date = new Date().toDateString().slice(0, 4);
             var tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             var thirdDay = new Date();
             thirdDay.setDate(thirdDay.getDate() + 2);
-            (i === 0) ? weatherData += `<div class='current cards mdc-card'><p style='margin: auto;'>${date}</p>`
-            : (i === 1) ? weatherData += `<div class='next cards mdc-card'><p style='margin: auto;'>${tomorrow.toDateString().slice(0, 3)}</p>`
-            : weatherData += `<div class='twoDay cards mdc-card'><p style='margin: auto;'>${thirdDay.toDateString().slice(0, 3)}</p>`;
+            (i === 0) ? weatherData += `<div class='current cards mdc-card --mdc-theme-secondary'><p style='margin: auto;'>${date}</p>`
+            : (i === 1) ? weatherData += `<div class='next cards mdc-card --mdc-theme-secondary'><p style='margin: auto;'>${tomorrow.toDateString().slice(0, 4)}</p>`
+            : weatherData += `<div class='twoDay cards mdc-card --mdc-theme-secondary'><p style='margin: auto;'>${thirdDay.toDateString().slice(0, 4)}</p>`;
             weatherData += `<div class='weather-img'><img style='height: 5vh; width: 5vh; 'src='http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png' alt='Weather Image'/></div>`;
             weatherData += `<div class='temp'>Temp: ${data.list[i].main.temp.toFixed(0)}</div>`;
             weatherData += `<div class='temp-min'>Lo: ${data.list[i].main.temp_min.toFixed(0)}</div>`;
