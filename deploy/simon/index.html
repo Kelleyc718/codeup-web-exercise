@@ -2,14 +2,74 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<script src="" charset="utf-8">
+  <main class="container">
+    <h1>ES6 Refactor</h1>
+    <h3>Top 3 Favorite Movies</h3>
+    <div id="favMovies">
+      <ol>
+          <li class="movie"></li>
+          <hr>
+          <li class="movie"></li>
+          <hr>
+          <li class="movie"></li>
+      </ol>
+    </div>
+    <button id="showBtn" class="btn btn-primary">Show Movies</button>
+  </main>
+<!-- jQuery Version 2.2.4 -->
+<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script charset="utf-8">
+'use strict';
+{
+  const showBtn = document.getElementById('showBtn');
 
+  const movies = [
+    {
+      name: 'LOTR',
+      year: '2001',
+      genre: 'Fantasy'
+    },
+    {
+      name: 'The Matrix',
+      year: '1999',
+      genre: 'Sci-Fi'
+    },
+    {
+      name: 'Shine',
+      year: '1996',
+      genre: 'Drama'
+    }
+  ];
+  console.log(movies);
+  const buildMovieHTML = movie => {
+    let html = '';
+    movies.forEach() 
+      html += `<ul><li>${movie.name}`;
+      html += `</li><li>${movie.year}`;
+      html += `</li><li>${movie.genre}</li></ul>`;
+    }
+  };
+  console.log(buildMovieHTML);
+
+  const addHTMLToPage = movies => {
+    let movieItems = document.getElementsByClassName('movie');
+    for (let i = 0; i < movies.length; i += 1) {
+      movieItems[i].innerHTML = buildMovieHTML(movies[i]);
+    }
+  };
+  console.log(addHTMLToPage);
+
+  showBtn.addEventListener('click', () => {
+    addHTMLToPage(movies);
+  });
+}
 </script>
 </body>
 </html>
