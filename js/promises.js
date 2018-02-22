@@ -21,10 +21,10 @@
 */
 
   const lastCommit = userName => {
-    fetch(`https://api.github.com/repos/${userName}/codeup-web-exercises/commits`,
+    fetch(`https://api.github.com/users/${userName}/events/public`,
       {headers: {'Authorization': 'token xxx'}
       }).then(response => response.json())
-        .then(data => (document.getElementById('tagline').innerHTML += data[0].commit.author.date))
+        .then(data => (document.getElementById('tagline').innerHTML += data[0].created_at))
         .catch(error => console.error(error));
   };
   lastCommit(userName);

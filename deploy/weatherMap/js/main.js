@@ -51,7 +51,7 @@
 
     // Captures #searchLoc value and send to geocoder
     $('#searchLoc').keypress(e => {
-      if (e.keyCode === '13') {
+      if (e.keyCode == '13') {
         let geocoder = new google.maps.Geocoder();
         geo(geocoder, map);
       }
@@ -73,7 +73,7 @@
       let address = $('#searchLoc').val();
       geocoder.geocode({
         'address': address
-      }, function(results, status) {
+      }, (results, status) => {
         if (status === 'OK') {
           map.setCenter(results[0].geometry.location);
           marker = new google.maps.Marker({
@@ -101,7 +101,7 @@
   };
 
   // Builds supporting HTML based on data gathered from geolocated JSON request.
-  let weatherData = '<div>';
+  let weatherData = '';
 
   const buildHTML = data => {
     // Users date information
@@ -114,9 +114,9 @@
     thirdDay.setDate(thirdDay.getDate() + 2);
 
     for (var i = 0; i < 3; i++) {
-      (i === 0) ? weatherData += `<p>${date.toDateString().slice(0, 4)}</p>`
-      : (i === 1) ? weatherData += `<p>${tomorrow.toDateString().slice(0, 4)}</p>`
-      : weatherData += `<p>${thirdDay.toDateString().slice(0, 4)}</p>`;
+      (i === 0) ? weatherData += `<div class='current cards'><p>${date.toDateString().slice(0, 4)}</p>`
+      : (i === 1) ? weatherData += `<div class='next cards'><p>${tomorrow.toDateString().slice(0, 4)}</p>`
+      : weatherData += `<div class='twoDay cards'><p>${thirdDay.toDateString().slice(0, 4)}</p>`;
       weatherData += `<div class='weather-img'>
       <img src='http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png' alt='Weather'/></div>`;
       weatherData += `<p>Temp: ${data.list[i].main.temp.toFixed(0)}</p>`;
