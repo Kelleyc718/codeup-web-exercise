@@ -1,4 +1,6 @@
-{
+'use strict';
+import mdc from './mdc.js';
+import $ from 'jquery';
   /* global $ */
   /* global google: true */
   /* eslint no-undef: "error" */
@@ -128,4 +130,3 @@
     $('#title').html(`<h1>Weather for ${data.city.name}</h1>`);
     $('#main-content').append(weatherData);
   };
-}

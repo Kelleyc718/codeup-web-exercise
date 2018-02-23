@@ -4,11 +4,23 @@
   "description": "Weather map using Google Maps API to provide locations for weather ajax requests through openWeatherMap's API",
   "main": "index.js",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "config": "^1.29.4"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "jquery": "^3.3.1",
+    "material": "^0.2.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  },
   "scripts": {
+    "start:dev": "webpack-dev-server",
+    "build": "webpack",
+    "build:watch": "webpack --watch",
+    "build:production": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kelleyc",
