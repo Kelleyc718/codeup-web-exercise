@@ -1,31 +1,37 @@
 'use strict';
 /* global prompt */
 /* global fetch */
-{
-  const userName = prompt('Enter your username');
+const userName = prompt('Enter your username');
+let repoList = ['codeup-web-exercises'];
+let fetchUrl = `https://api.github.com/repos/${userName}/${repoList}/contents`;
 
-/*
-  const wait = num => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (Math.random() > 0.1) {
-          resolve('winning');
-        } else {
-          reject(new Error('something bad happened'));
-        }
-      }, num);
-    });
-  };
-  wait(1000).then(() => console.log('You\'ll see this after second.'));
-  wait(3000).then(() => console.log('You\'ll see this after 3 seconds.'));
-*/
+const isFile = path => {
+  return (path.match(/^.*\./g));
+};
 
-  const lastCommit = userName => {
-    fetch(`https://api.github.com/users/${userName}/events/public`,
-      {headers: {'Authorization': 'token xxx'}
-      }).then(response => response.json())
-        .then(data => (document.getElementById('tagline').innerHTML += data[0].created_at))
-        .catch(error => console.error(error));
-  };
-  lastCommit(userName);
-}
+const files = [];
+
+const addFile = path => {
+  return files.push(path);
+};
+
+const searcher = fetch(fetchUrl,
+  {headers: {'Authorization': 'token 8c1b2f1f1e09d3acbeab7cf3c7a8012c0a152666'}
+  }).then(response => response.json())
+    .then(data => handleFiles(data));
+
+const handleFiles = data => {
+  let paths = data.map(({path}) => path);
+  console.log(paths);
+  for (let path of paths) {
+    if (isFile) {
+      addFile(path);
+    } else {
+      fetch(`${fetchUrl}/${path}`,
+        {headers: {'Authorization': 'token 8c1b2f1f1e09d3acbeab7cf3c7a8012c0a152666'}
+        }).then(handleFiles);
+    }
+  }
+};
+
+searcher(repoList);
