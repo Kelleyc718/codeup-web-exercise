@@ -1,64 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <style>
-    .full {height:100vh; width: 100vw;}
+    .full {
+      height: 100vh;
+      width: 100vw;
+    }
   </style>
 </head>
+
 <body>
   <h1>Konami Code</h1>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script>
-      "use strict";
-      var konamiSeq = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-      var started = false;
-      var position = 0;
-      var key = '';
-      $(document).keyup(function (e) {
-        key = e.keyCode;
-        if (!started) {
-          if (key === 38) {
-            started = true;
-          }
+    "use strict";
+    var konamiSeq = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    var started = false;
+    var position = 0;
+    var key = '';
+    $(document).keyup(function(e) {
+      key = e.keyCode;
+      if (!started) {
+        if (key === 38) {
+          started = true;
         }
-        if (started) {
-          if (konamiSeq[position] === key) {
-            position++;
-          } else {
-            reset();
-          }
-          if (position === 10) {
-            reset();
-            cheatsActive();
-          }
+      }
+      if (started) {
+        if (konamiSeq[position] === key) {
+          position++;
         } else {
           reset();
         }
-      });
-
-      function cheatsActive () {
-        var image = document.createElement('img');
-        image.setAttribute('src', 'img/pt.gif');
-        document.body.appendChild(image);
-        $('img').addClass('full');
-        var audio = document.createElement('audio');
-        audio.setAttribute('src', 'img/sound.mp3');
-        document.body.appendChild(audio);
-        audio.autoplay = true;
-        audio.load();
+        if (position === 10) {
+          reset();
+          cheatsActive();
+        }
+      } else {
+        reset();
       }
+    });
 
-      function reset () {
-        started = false;
-        position = 0;
-      }
+    function cheatsActive() {
+      var image = document.createElement('img');
+      image.setAttribute('src', 'img/pt.gif');
+      document.body.appendChild(image);
+      $('img').addClass('full');
+      var audio = document.createElement('audio');
+      audio.setAttribute('src', 'img/sound.mp3');
+      document.body.appendChild(audio);
+      audio.autoplay = true;
+      audio.load();
+    }
+
+    function reset() {
+      started = false;
+      position = 0;
+    }
   </script>
 
-</script>
+  </script>
 </body>
+
 </html>
