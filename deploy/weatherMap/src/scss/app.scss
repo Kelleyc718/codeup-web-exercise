@@ -1,0 +1,50 @@
+@import "@material/button/mdc-button";
+
+$color: black;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#mainContainer {
+  display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: 10vh 10vh 30vh 40vh;
+grid-template-areas: "head head head head head"
+                     ". search search search ."
+                     ". current current current ."
+                     ". map map map .";
+}
+
+#search {
+  text-align: center;
+  grid-area: search;
+}
+
+#main-content {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-area: current;
+}
+
+#title {
+  grid-area: head;
+  text-align: center;
+}
+
+#map {
+  grid-area: map;
+}
+
+.search-btn {
+  @include mdc-button-ink-color(teal);
+  @include mdc-states(teal);
+}
+
+mdc-card-fill-color($color) {
+
+}

@@ -2,47 +2,60 @@
 // necessary for webpack
 const path = require('path');
 
-module.exports = {
-  // where our app "starts"
-  entry: './src/index.js',
-  // where to put the transpiled javascript
-  output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'main.js'
-  },
+module.exports = [
+  {
+    entry: './src/scss/app.scss',
+    output: {
+      // This is necessary for webpack to compile
+      // But we never use style-bundle.js
+      filename: 'style-bundle.js'
+    },
     module: {
-        rules: [{
-            test: /\.scss$/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: 'bundle.css'
+              }
             }, {
-                loader: "css-loader" // translates CSS into CommonJS
+              loader: 'extract-loader'
             }, {
-                loader: "sass-loader" // compiles Sass to CSS
-            }]
-        }]
-    }
-};
-
-  // babel config
-  module: {
-    rules: [
-      {
-        // anything file that ends with '.js'
-        test: /\.js$/,
-        // except those in "node_modules"
-        exclude: /node_modules/,
-        // transform with babel
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
+              loader: 'css-loader'
+            }, {
+              loader: 'sass-loader',
+              options: {
+                importer: function(url, prev) {
+                  if (url.indexOf('@material') === 0) {
+                    var filePath = url.split('@material')[1];
+                    var nodeModulePath = `./node_modules/@material/${filePath}`;
+                    return {file: require('path').resolve(nodeModulePath)};
+                  }
+                  return {file: url};
+                }
+              }
+            }
+          ]
         }
-      }
-    ]
-  },
+      ]
+    }
+  }
+];
 
-  // allows us to see how the transpiled js relates to the untranspiled js
-  devtool: 'source-map'
-};
+module.exports.push({
+  entry: "./src/app.js",
+  output: {
+    filename: "bundle.js"
+  },
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015']
+      }
+    }]
+  },
+});

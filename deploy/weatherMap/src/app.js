@@ -1,10 +1,11 @@
 'use strict';
-import mdc from './mdc.js';
+import {MDCComponent, MDCFoundation} from '@material/base';
+import {MDCRipple} from '@material/ripple';
 import $ from 'jquery';
   /* global $ */
   /* global google: true */
   /* eslint no-undef: "error" */
-
+  const ripple = new MDCRipple(document.querySelector('.search-btn'));
   // Locate user by IP request
   const latLng = $.getJSON('http://ip-api.com/json').done(data => {
     let myLat = data.lat;
@@ -116,9 +117,9 @@ import $ from 'jquery';
     thirdDay.setDate(thirdDay.getDate() + 2);
 
     for (var i = 0; i < 3; i++) {
-      (i === 0) ? weatherData += `<div class='current cards'><p>${date.toDateString().slice(0, 4)}</p>`
-      : (i === 1) ? weatherData += `<div class='next cards'><p>${tomorrow.toDateString().slice(0, 4)}</p>`
-      : weatherData += `<div class='twoDay cards'><p>${thirdDay.toDateString().slice(0, 4)}</p>`;
+      (i === 0) ? weatherData += `<div class='mdc-card'><p>${date.toDateString().slice(0, 4)}</p>`
+      : (i === 1) ? weatherData += `<div class='mdc-card'><p>${tomorrow.toDateString().slice(0, 4)}</p>`
+      : weatherData += `<div class='mdc-card'><p>${thirdDay.toDateString().slice(0, 4)}</p>`;
       weatherData += `<div class='weather-img'>
       <img src='http://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png' alt='Weather'/></div>`;
       weatherData += `<p>Temp: ${data.list[i].main.temp.toFixed(0)}</p>`;
