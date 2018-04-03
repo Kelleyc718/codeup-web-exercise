@@ -1,11 +1,12 @@
 'use strict';
 import {MDCComponent, MDCFoundation} from '@material/base';
+import {MDCTextField, MDCTextFieldFoundation} from '@material/textfield';
 import {MDCRipple} from '@material/ripple';
 import $ from 'jquery';
-  /* global $ */
-  /* global google: true */
-  /* eslint no-undef: "error" */
-  const ripple = new MDCRipple(document.querySelector('.search-btn'));
+
+  const ripple = new MDCRipple(document.querySelector('.mdc-button'));
+  const textfield = new MDCTextField(document.querySelector('.mdc-text-field'));
+
   // Locate user by IP request
   const latLng = $.getJSON('http://ip-api.com/json').done(data => {
     let myLat = data.lat;
@@ -104,11 +105,12 @@ import $ from 'jquery';
   };
 
   // Builds supporting HTML based on data gathered from geolocated JSON request.
-  let weatherData = '';
+
 
   const buildHTML = data => {
     // Users date information
     let date = new Date();
+    let weatherData = '';
 
     let tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);

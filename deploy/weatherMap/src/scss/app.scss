@@ -1,21 +1,31 @@
 @import "@material/button/mdc-button";
-
-$color: black;
+@import "@material/theme/mdc-theme";
+@import "@material/textfield/mdc-text-field";
 
 html, body {
-  margin: 0;
-  padding: 0;
+  background: #eee;
+  font-size: 14px;
   box-sizing: border-box;
 }
 
 #mainContainer {
   display: grid;
 grid-template-columns: repeat(5, 1fr);
-grid-template-rows: 10vh 10vh 30vh 40vh;
-grid-template-areas: "head head head head head"
+grid-template-rows: 5vh 10vh 30vh 40vh 5vh;
+grid-row-gap: 0.6rem;
+grid-template-areas: ". head head head ."
                      ". search search search ."
                      ". current current current ."
                      ". map map map .";
+}
+
+#title {
+  grid-area: head;
+  text-align: center;
+}
+
+#title h1 {
+  margin: 0.6rem;
 }
 
 #search {
@@ -31,20 +41,48 @@ grid-template-areas: "head head head head head"
   grid-area: current;
 }
 
-#title {
-  grid-area: head;
+#main-content p {
+  margin: 0.6rem;
+  padding: 0;
+}
+
+.mdc-card {
+  background: #eee;
+  width: 80%;
   text-align: center;
+  margin: 0;
+}
+
+#map.mdc-card {
+  width: 100%;
+  height: auto;
+}
+
+#main-content.mdc-card {
+  width: 80%;
+  height: auto;
+  padding: 1rem;
 }
 
 #map {
+  margin-top: 1rem;
   grid-area: map;
 }
 
-.search-btn {
+#search-btn {
+  width: 100%;
   @include mdc-button-ink-color(teal);
   @include mdc-states(teal);
 }
 
-mdc-card-fill-color($color) {
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  @include mdc-text-field-bottom-line-color(teal);
+}
 
+.mdc-components {
+  box-sizing: border-box;
+  display: flex;
+  font-family: Roboto;
+  margin: 64px auto;
+  width: 1664px;
 }

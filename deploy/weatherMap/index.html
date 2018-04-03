@@ -5,22 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
   <link rel="stylesheet" href="bundle.css">
 </head>
-
 <body>
-  <div id="mainContainer">
-    <header id="title">
+  <div id="mainContainer" class="material-components mdc-theme--background">
+    <header id="title" class="primary">
     </header>
-    <div id="search">
-      <div class="mdc-text-field__outline-path" data-mdc-auto-init="MDCTextField">
-        <label for="searchLoc" class="mdc-text-field__label">Search by City</label>
-        <input class="mdc-text-field__input --mdc-text-field" type="text" id="searchLoc" autocomplete="address-level1">
-        <button class="search-btn mdc-button">Search</button>
+    <div id="search" class="material-components">
+      <div class="mdc-text-field mdc-text-field--upgraded">
+        <input class="mdc-text-field__input" type="text" id="searchLoc">
+        <label class="mdc-floating-label" for="searchLoc">Search by City</label>
+        <div class="mdc-line-ripple"></div>
+        <button id="search-btn" type="submit" class="mdc-button">Search</button>
       </div>
     </div>
-    <div id="main-content"></div>
-    <div id="map" class="mdc-card">
+    <div id="main-content" class="mdc-components__section"></div>
+    <div id="map" class="mdc-card mdc-components__section">
     </div>
   </div>
   <script src="bundle.js" async></script>
@@ -30,4 +31,5 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA__TXHybuSpC4cKCw2bugRIZtO8BK5xuk&libraries=places">
   </script>
 </body>
+
 </html>
