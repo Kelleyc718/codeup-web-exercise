@@ -58,6 +58,8 @@ import $ from 'jquery';
       if (e.keyCode == '13') {
         let geocoder = new google.maps.Geocoder();
         geo(geocoder, map);
+        console.log(geo(geocoder,map));
+
       }
     });
 
@@ -79,6 +81,7 @@ import $ from 'jquery';
         'address': address
       }, (results, status) => {
         if (status === 'OK') {
+          $('#title').html(`<h1>Weather for ${results[0].address_components[0].long_name}</h1>`);
           map.setCenter(results[0].geometry.location);
           marker = new google.maps.Marker({
             map: map,
@@ -89,6 +92,8 @@ import $ from 'jquery';
         }
       });
     };
+    return thisLat = results[2].location.lat;
+            thisLng = results[2].location.lng;
   });
 
   // JSON request to get weatherData passed on geolocated position
